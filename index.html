@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Just For You ❤️</title>
+  <style>
+    body {
+      background: linear-gradient(to bottom, #ff9a9e, #fad0c4);
+      height: 100vh;
+      text-align: center;
+      font-family: 'Segoe UI', sans-serif;
+      overflow: hidden;
+    }
+
+    h1 {
+      margin-top: 120px;
+      color: #b30059;
+      font-size: 40px;
+    }
+
+    p {
+      font-size: 22px;
+      color: #800040;
+    }
+
+    button {
+      font-size: 20px;
+      padding: 12px 30px;
+      margin: 20px;
+      border-radius: 30px;
+      border: none;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .yes {
+      background: #ff3366;
+      color: white;
+    }
+
+    .yes:hover {
+      transform: scale(1.1);
+    }
+
+    .no {
+      background: white;
+      color: #ff3366;
+      border: 2px solid #ff3366;
+      position: absolute;
+    }
+
+    .heart {
+      position: fixed;
+      color: red;
+      font-size: 20px;
+      animation: float 4s infinite ease-in;
+    }
+
+    @keyframes float {
+      0% { bottom: 0; opacity: 1; }
+      100% { bottom: 100%; opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Hey ❤️</h1>
+  <p>
+    Tumhari muskurahat meri favorite cheez hai 😊<br>
+    Aur ek sawal hai jo dil se poochna chahta hoon…
+  </p>
+
+  <h1>Will you be my Valentine? 💖</h1>
+
+  <button class="yes" onclick="yes()">YES 💕</button>
+  <button class="no" id="no">NO 🙈</button>
+
+  <script>
+    function yes() {
+      alert("Tumne HAA keh kar mera din special bana diya 🌹❤️");
+    }
+
+    const noBtn = document.getElementById("no");
+    noBtn.addEventListener("mouseover", () => {
+      noBtn.style.left = Math.random() * 80 + "vw";
+      noBtn.style.top = Math.random() * 80 + "vh";
+    });
+
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.innerHTML = "❤️";
+      heart.style.left = Math.random() * 100 + "vw";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 4000);
+    }
+
+    setInterval(createHeart, 500);
+  </script>
+
+</body>
+</html>
